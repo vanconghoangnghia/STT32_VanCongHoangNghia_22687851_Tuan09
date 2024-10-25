@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and borders in element's total width and height */
+    }
+
+    .wrapper {
+        width: 789px;
+        height: 500px;
+        margin: 0 auto; /* Center the wrapper */
+        display: flex; /* Optional: Use flexbox for layout */
+        flex-direction: column; /* Stack children vertically */
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="undo">
+            <a href="../html/home.html"><h3>back</h3></a>
+        </div>
+    </header>
+    <div class="container">
+      
+    <h1>Information</h1>
+    <table border="1">
+        <tr>
+            <th colspan="2">THÔNG TIN ĐĂNG NHẬP</th>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td id="us">AAAA</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td id="pw">BBBB</td>
+        </tr>
+        <tr>
+            <td>Giới tính</td>
+            <td id="gen">DDDD</td>
+        </tr>
+        <tr>
+            <td>Cafe bạn chọn</td>
+            <td id="cf">CCCC</td>
+        </tr>
+    </table>
+</div>
+    <script>
+        // Get stored data from localStorage
+        var gt1, gt2, gt3, gt4;
+        gt1 = localStorage.getItem("us");
+        gt2 = localStorage.getItem("pd");
+        gt3 = JSON.parse(localStorage.getItem("cf")); // Parse the JSON string
+        gt4 = localStorage.getItem("gt");
+
+        // Output data to the HTML
+        document.getElementById("us").innerHTML = gt1 || "N/A";
+        document.getElementById("pw").innerHTML = gt2 || "N/A";
+        document.getElementById("cf").innerHTML = gt3 ? gt3.join(", ") : "No selection";
+        document.getElementById("gen").innerHTML = gt4 || "N/A";
+    </script>
+</body>
+</html>
